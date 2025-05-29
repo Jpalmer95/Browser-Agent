@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Agent</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 300px; padding: 10px; }
+    textarea { width: 100%; margin-bottom: 10px; }
+    button { margin-right: 5px; }
+    .settings { margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <h1>Web Agent</h1>
+  <textarea id="userInput" placeholder="Enter your request..."></textarea>
+  <button id="submitRequest">Start Agent</button>
+  <button id="cancelOperation">Cancel</button>
+  <button id="loginGoogle" style="margin-top: 10px;">Login to Google</button>
+
+  <div class="settings">
+    <h2>Settings</h2>
+    <label for="maxTabs">Max Tabs:</label>
+    <input type="number" id="maxTabs" value="5">
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
