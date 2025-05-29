@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Web Agent",
+  "version": "1.0",
+  "description": "A Chrome extension that acts as a web agent.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs",
+    "identity", // Added for Google Authentication
+    "http://*/",
+    "https://*/"
+  ],
+  // IMPORTANT: You must create an OAuth 2.0 Client ID in Google Cloud Console
+  // and replace "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com" below.
+  // Ensure this client ID is configured for use with your Chrome Extension's ID.
+  // When loading an unpacked extension, Chrome uses the extension's generated ID.
+  // You may need to add this extension ID to the authorized list for your OAuth Client ID.
+  "oauth2": {
+    "client_id": "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
